@@ -234,4 +234,79 @@ if (message.content.startsWith("F!cv")) {
 }
 });
 
+client.on('message', message => {
+if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
+    let pages = [`
+***__وصف عن البوت__***
+**
+:gem:  البوت فيه كثير ميزات حلوة و جميلة
+ ا:rocket: البوت يعمل قرابة 24 ساعة
+**
+        ***__Admin orders__***
+**
+        ❖ ?kick <mention > ➾  kickلي اعطاء شخص
+
+        ❖ ?ban <mention> ➾ لي اعطاء شخص بان
+      
+        ❖ ?unban <mention> ➾ لي فك بان عن شخص
+      
+        ❖ ?mute <mention> ➾ لـ اعطاء ميوت لي شخص
+      
+        ❖ ?ct <name> ➾ لـ انشاء روم كتبي
+      
+        ❖ ?cv <name> ➾لـ انشاء روم صوتي
+      
+        ❖ ?bc <message>  ➾ لـ ارسال رسالة لي كل الاعضاء
+
+        ❖ ?clear  ➾ لـ حذف الشات 
+**
+   
+`]
+    let page = 1;
+ 
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+ 
+    message.author.sendEmbed(embed).then(msg => {
+ 
+        msg.react('◀').then( r => {
+            msg.react('▶')
+ 
+ 
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+ 
+ 
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+ 
+ 
+ 
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+     
+      page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+});
+client.on('message', message => {
+    if(message.content === '?help') {
+        message.reply('تم ارساله بالخاص :white_check_mark: ');
+    }
+});
+
 client.login(process.env.BOT_TOKEN);
