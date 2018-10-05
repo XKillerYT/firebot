@@ -34,7 +34,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : Diamond Codes ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`FireBot | By X_KillerYT `)//حقوق دايموند كودز
+client.user.setGame(`F!help | By X_KillerYT `)//حقوق دايموند كودز
 client.user.setStatus("online")
 });
 
