@@ -244,23 +244,23 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
 **
         ***__Admin orders__***
 **
-        ❖ ?kick <mention > ➾  kickلي اعطاء شخص
+        ❖ F!kick <mention > ➾  kickلي اعطاء شخص
 
-        ❖ ?ban <mention> ➾ لي اعطاء شخص بان
+        ❖ F!ban <mention> ➾ لي اعطاء شخص بان
       
-        ❖ ?unban <mention> ➾ لي فك بان عن شخص
+        ❖ F!unban <mention> ➾ لي فك بان عن شخص
       
-        ❖ ?mute <mention> ➾ لـ اعطاء ميوت لي شخص
+        ❖ F!mute <mention> ➾ لـ اعطاء ميوت لي شخص
       
-        ❖ ?ct <name> ➾ لـ انشاء روم كتبي
+        ❖ F!ct <name> ➾ لـ انشاء روم كتبي
       
-        ❖ ?cv <name> ➾لـ انشاء روم صوتي
+        ❖ F!cv <name> ➾لـ انشاء روم صوتي
       
-        ❖ ?bc <message>  ➾ لـ ارسال رسالة لي كل الاعضاء
+        ❖ F!bc <message>  ➾ لـ ارسال رسالة لي كل الاعضاء
 
-        ❖ ?mc  ➾ لـ اقفال الشات 
+        ❖ F!mc  ➾ لـ اقفال الشات 
 
-        ❖ ?unmc  ➾ لـ فتح الشات 
+        ❖ F!unmc  ➾ لـ فتح الشات 
 **
    
 `]
