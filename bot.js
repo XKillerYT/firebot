@@ -258,7 +258,9 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
       
         ❖ ?bc <message>  ➾ لـ ارسال رسالة لي كل الاعضاء
 
-        ❖ ?clear  ➾ لـ حذف الشات 
+        ❖ ?mc  ➾ لـ اقفال الشات 
+
+        ❖ ?unmc  ➾ لـ فتح الشات 
 **
    
 `]
@@ -307,6 +309,35 @@ client.on('message', message => {
     if(message.content === '?help') {
         message.reply('تم ارساله بالخاص :white_check_mark: ');
     }
+});
+
+client.on('message', message => {
+
+    if (message.content === "?mc") {
+                        if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("تم تقفيل الشات ✅ ")
+           });
+             }
+if (message.content === "?unmc") {
+    if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("تم فتح الشات✅")
+           });
+             }
+
+
+
 });
 
 client.login(process.env.BOT_TOKEN);
